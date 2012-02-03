@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+title="Embed Music"
+title_url="http://sites.google.com/site/mori79/html-gadgets/media-players/embed-music"
+description="A gadget to embed music/sound in your web page -- no Flash. More info: http://sites.google.com/site/mori79/html-gadgets/media-players/embed-music"
+screenshot="http://lh6.googleusercontent.com/-VpTHewNorsY/TlJzaHGX27I/AAAAAAAAEKo/0HVEoTTTUiA/s800/embed-music-screenshot.png"
+thumbnail="http://lh3.googleusercontent.com/-cDRNwTW8xu4/TlN44t7xcvI/AAAAAAAAEK4/Fk2n2Gw1uQE/s800/embed-music-thumbnail.png"
+width="300"
+height="45"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<UserPref name="url" display_name="MP3 / M3U URL" required="true" />
+<UserPref name="bg" display_name="Background color (e.g. #C0C0C0)" />
+
+<UserPref name="auto" display_name="AutoStart" default_value="false" datatype="enum">
+<EnumValue value="false" display_value="No" />
+<EnumValue value="true" display_value="Yes" />
+</UserPref>
+<UserPref name="hide" display_name="Hidden" default_value="" datatype="enum">
+<EnumValue value="" display_value="No" />
+<EnumValue value="hidden=true" display_value="Yes" />
+</UserPref>
+<UserPref name="loop" display_name="Loop" default_value="false" datatype="enum">
+<EnumValue value="false" display_value="No" />
+<EnumValue value="true" display_value="Yes" />
+</UserPref>
+<Content type="html"><![CDATA[
+<style type="text/css">
+body {background:transparent;}
+</style>
+<embed type="audio/mpeg" src="__UP_url__" width="100%" height="100%" bgcolor="__UP_bg__" autostart="__UP_auto__" loop="__UP_loop__" __UP_hide__></embed>
+]]></Content>
+</Module>
