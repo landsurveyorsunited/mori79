@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+title="PDF Wrapper"
+title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/pdf-wrapper"
+description="A gadget to embed/include a PDF in your page. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/pdf-wrapper"
+screenshot="http://lh5.ggpht.com/_qkZzGyIkXmo/TEQVX-KJyFI/AAAAAAAADXA/p-UO5PT1Brw/s800/pdf-wrapper-screenshot.png"
+thumbnail="http://lh3.ggpht.com/_qkZzGyIkXmo/TEQWi8UbhsI/AAAAAAAADXI/jpqhcXYyi0g/s800/pdf-wrapper-thumbnail.png"
+width="800"
+height="600"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<UserPref name="url" display_name="PDF URL" required="true" />
+<Content type="html"><![CDATA[
+<style type="text/css">
+body {background:transparent;}
+</style>
+<embed type="application/pdf" src="__UP_url__" width="100%" height="100%"></embed>
+]]></Content>
+</Module>
