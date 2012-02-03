@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+title="Image Mouseover"
+title_url="http://sites.google.com/site/mori79/html-gadgets/text-images/image-mouseover"
+description="A gadget to create an image mouseover/rollover effect. More info: http://sites.google.com/site/mori79/html-gadgets/text-images/image-mouseover"
+screenshot="http://lh6.googleusercontent.com/-jCm-Pj5NlI8/Tfh722Va6DI/AAAAAAAADzc/DPvpwd7jZYA/s800/image-mouseover_screenshot.png"
+thumbnail="http://lh3.googleusercontent.com/-wnq0_4Zc5TE/Tfh72sPAf0I/AAAAAAAADzY/B5do0hJnAEY/s800/image-mouseover_thumbnail.png"
+width="400"
+height="300"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<UserPref name="originalImage" display_name="Original image" required="true" />
+<UserPref name="rolloverImage" display_name="Rollover image" required="true" />
+<UserPref name="text" display_name="Tooltip / alternate text" />
+<UserPref name="url" display_name="When clicked, go to URL" />
+<UserPref name="target" display_name="Where to open the link" default_value="_parent" datatype="enum">
+<EnumValue value="_parent" display_value="Same tab / window" />
+<EnumValue value="_blank" display_value="New tab / window" />
+</UserPref>
+<Content type="html"><![CDATA[
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style type="text/css">
+* {margin:0; border:0; padding:0;}
+a {display:inline-block; background-image:url(__UP_rolloverImage__);}
+a:hover img {visibility:hidden;}
+</style>
+<a id="foo" title="__UP_text__"><img src="__UP_originalImage__" alt="__UP_text__"></a><script type="text/javascript">
+var prefs = new gadgets.Prefs();
+var Furl = prefs.getString("url");
+var Ftarget = prefs.getString("target");
+if (Furl != "") {
+document.getElementById("foo").href = "" + Furl + "";
+document.getElementById("foo").target = "" + Ftarget + "";
+}
+</script>]]></Content>
+</Module>
