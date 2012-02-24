@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> 
+<head> 
+<title>Guitar</title>
+<script type="text/javascript">
+function playSound(url) {
+document.getElementById('container').innerHTML = '<embed type="audio/mpeg" hidden="true" autostart="true" height="10" loop="false" src="' + url + '" width="10"><\/embed>';
+}
+</script>
+</head>
+<body>
+<img alt="Stimmen" border="0" width="328" height="346" src="https://dl.dropbox.com/u/4017788/Guitar/tune_guitar_elip.jpg" usemap="#Stimmen">
+<map name="Stimmen">
+<area alt="E-Saite" coords="96,4,113,330" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/et.mp3'); return false;" shape="rect" title="E-Saite">
+<area alt="A-Saite" coords="125,1,139,337" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/a.mp3'); return false;" shape="rect" title="A-Saite">
+<area alt="D-Saite" coords="154,1,166,342" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/d.mp3'); return false;" shape="rect" title="D-Saite">
+<area alt="G-Saite" coords="182,1,191,342" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/g.mp3'); return false;" shape="rect" title="G-Saite">
+<area alt="H-Saite" coords="211,8,219,334" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/h.mp3'); return false;" shape="rect" title="H-Saite">
+<area alt="E-Saite" coords="240,19,245,322" href="" onclick="playSound('https://dl.dropbox.com/u/4017788/Guitar/e.mp3'); return false;" shape="rect" title="E-Saite">
+</map>
+<div id="container"></div>
+</body>
+</html>
