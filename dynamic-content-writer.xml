@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs
+title="Dynamic Content Writer"
+title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/dynamic-content-writer"
+description="A gadget to edit and view HTML in real time / a real-time HTML editor. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/dynamic-content-writer"
+screenshot="http://lh4.googleusercontent.com/--KLOaKed6j8/T131g_QT1OI/AAAAAAAAESI/UlTR42JHc-4/s800/dynamic-content-writer-screenshot.png"
+thumbnail="http://lh3.googleusercontent.com/-rXkmm1DfXwQ/T131guWjIJI/AAAAAAAAESI/_0YU367ISSo/s800/dynamic-content-writer-thumbnail.png"
+width="800"
+height="600"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English Teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<UserPref name="textFieldHeight" display_name="Text field height" default_value="50%" />
+<UserPref name="frameHeight" display_name="Frame height" default_value="50%" />
+<UserPref name="textFieldBackgroundColor" display_name="Text field background color" default_value="#EFEFEF" />
+<UserPref name="textFieldFontColor" display_name="Text field font color" default_value="#006000" />
+<Content type="html"><![CDATA[
+<script type="text/javascript">
+var prefs = new gadgets.Prefs();
+var th = prefs.getString("textFieldHeight");
+var fh = prefs.getString("frameHeight");
+var tbc = prefs.getString("textFieldBackgroundColor");
+var tfc = prefs.getString("textFieldFontColor");
+var parentSource =
+'<!DOCTYPE HTML PUBLIC \"-\/\/W3C\/\/DTD HTML 4.01 Frameset\/\/EN\" \"http:\/\/www.w3.org\/TR\/html4\/frameset.dtd\">' +
+'<html>' +
+'<head>' +
+'<title>Parent document<\/title>' +
+'<\/head>' +
+'<frameset rows="' + th + ',' + fh + '">' +
+'<frame name="editor" src="about:blank">' +
+'<frame name="viewer" src="about:blank">' +
+'<\/frameset>' +
+'<\/html>';
+var editorSource =
+'<!DOCTYPE HTML PUBLIC \"-\/\/W3C\/\/DTD HTML 4.01 Transitional\/\/EN\" \"http:\/\/www.w3.org\/TR\/html4\/loose.dtd\">' +
+'<html>' +
+'<head>' +
+'<title>Editor document<\/title>' +
+'<style type="text/css">' +
+'* {width:100%; height:100%; margin:0; border:0; background:' + tbc + '; font:10pt monospace; color:' + tfc + ';}' +
+'html, body, form {padding:0;}' +
+'textarea {overflow:auto; resize:none; box-sizing:border-box; -moz-box-sizing:border-box; padding:0.5em;}' +
+'<\/style>' +
+'<script type="text/javascript">' +
+'var t;' +
+'function updateViewer() {' +
+'var v = window.parent.viewer.document;' +
+'v.open();' +
+'v.write(t.value);' +
+'v.close();' +
+'}' +
+'function getFocus() {' +
+'if (t.value == t.defaultValue) {' +
+'t.value = "";' +
+'updateViewer();' +
+'}' +
+'}' +
+'function loseFocus() {' +
+'if (t.value == "") {' +
+'t.value = t.defaultValue;' +
+'updateViewer();' +
+'}' +
+'}' +
+'window.onload = function() {' +
+'t = document.f.ta;' +
+'updateViewer();' +
+'}' +
+'<\/script>' +
+'<\/head>' +
+'<body>' +
+'<form name="f" method="get" onsubmit="return false;" action="">' +
+'<textarea rows="1" cols="1" oninput="updateViewer();" onpropertychange="updateViewer();" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
+'<\/form>' +
+'<\/body>' +
+'<\/html>';
+function updateEditor() {
+var e = window.editor.document;
+e.open();
+e.write(editorSource);
+e.close();
+}
+function writeParent() {
+document.open();
+document.write(parentSource);
+document.close();
+}
+window.onload = function() {
+writeParent();
+updateEditor();
+}
+</script>
+]]></Content>
+</Module>
