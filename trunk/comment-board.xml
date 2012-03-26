@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+title="Comment Board"
+title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/comment-form-board"
+description="A guestbook to display your site viewers comments. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/comment-form-board"
+screenshot="http://lh4.googleusercontent.com/_qkZzGyIkXmo/TZoBX7Cq0nI/AAAAAAAADl4/Z39wF7XNHeE/s800/comment-board-screenshot.png"
+thumbnail="http://lh5.googleusercontent.com/_qkZzGyIkXmo/TZoBXx57UrI/AAAAAAAADl8/6BdjtAflQUs/s800/comment-board-thumbnail.png"
+width="800"
+height="86"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+<Require feature="idi"/>
+<Require feature="dynamic-height"/>
+</ModulePrefs>
+<UserPref name="_table_query_url" display_name="Google spreadsheet URL" required="true" />
+<UserPref name="feedUrl" display_name="Feed URL" required="true" />
+<UserPref name="adminDisplayName" display_name="Admin display name" required="true" />
+<UserPref name="dynamicHeight" display_name="Dynamic height" default_value="gadgets.window.adjustHeight();" datatype="enum">
+<EnumValue value="gadgets.window.adjustHeight();" display_value="Yes" />
+<EnumValue value="tableDiv.style.overflow = 'auto'; tableDiv.style.height = document.documentElement.clientHeight - 44 + 'px';" display_value="No" />
+</UserPref>
+<UserPref name="commentsOrder" display_name="Comments order" default_value="row = 0; row != data.getNumberOfRows(); row++" datatype="enum">
+<EnumValue value="row = 0; row != data.getNumberOfRows(); row++" display_value="Chronological" />
+<EnumValue value="row; row != -1; row--" display_value="Reverse" />
+</UserPref>
+<UserPref name="commentCounterFontColor" display_name="Comment counter font color" default_value="#000000" />
+<UserPref name="feedLinkColor" display_name="Feed link color" default_value="#000000" />
+<UserPref name="feedIcon" display_name="Feed icon" default_value="http://lh3.googleusercontent.com/-KuLsepXzKHw/T3Ccuj5YyzI/AAAAAAAAEV8/KAQioR4r8Mg/s800/feed-icon.png" />
+<UserPref name="noCommentsMessageFontColor" display_name="'No comments' message font color" default_value="#000000" />
+<UserPref name="adminCommentIcon" display_name="Admin comment icon" default_value="http://lh4.googleusercontent.com/_qkZzGyIkXmo/TayXY-0snuI/AAAAAAAADoM/GuKvq6K4vwc/s800/admin-comment.png" />
+<UserPref name="viewersCommentIcon" display_name="Viewers comment icon" default_value="http://lh6.googleusercontent.com/_qkZzGyIkXmo/TayXY1T6_jI/AAAAAAAADoI/wiQb6uQLpb8/s800/viewers-comment.png" />
+<UserPref name="headersBorderColor" display_name="Headers border color" default_value="#FFC0CB" />
+<UserPref name="headersBackgroundColor" display_name="Headers background color" default_value="#FFE4E1" />
+<UserPref name="namesFontColor" display_name="Names font color" default_value="#000000" />
+<UserPref name="timestampsFontColor" display_name="Timestamps font color" default_value="#808080" />
+<UserPref name="numbersFontColor" display_name="Numbers font color" default_value="#000000" />
+<UserPref name="commentsFontColor" display_name="Comments font color" default_value="#000000" />
+<Content type="html"><![CDATA[
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style type="text/css">
+body {margin:0; padding:0;}
+#topdiv {height:44px;}
+a.feed:link, a.feed:visited {float:right; font:10pt Arial; color:__UP_feedLinkColor__; background:url(__UP_feedIcon__) no-repeat right bottom; padding-right:20px;}
+.counter {font:bold 11pt Arial; color:__UP_commentCounterFontColor__;}
+.no-comments {height:42px; font:10pt Arial; color:__UP_noCommentsMessageFontColor__; text-align:center;}
+.admin-comments {background-image:url(__UP_adminCommentIcon__);}
+.viewers-comments {background-image:url(__UP_viewersCommentIcon__);}
+.admin-comments, .viewers-comments {background-repeat:no-repeat; background-position:0px 6px; padding-left:21px;}
+.headers {height:16px; padding:5px; background-color:__UP_headersBackgroundColor__; border-top:1px solid __UP_headersBorderColor__;}
+.numbers {float:right; font:9pt Arial; color:__UP_numbersFontColor__;}
+a.names:link, a.names:visited, span.names {font:bold 10pt Arial; color:__UP_namesFontColor__;}
+a:hover {text-decoration:none;}
+.timestamps {font:9pt Arial; color:__UP_timestampsFontColor__; padding-left:10px;}
+.comments {font:10pt Arial; color:__UP_commentsFontColor__; margin:0; padding:10px 0px 26px; word-wrap:break-word; white-space:pre-line;}
+</style>
+<base target="_blank">
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<div id="topdiv"></div>
+<div id="tablediv"></div>
+
+<script>
+
+/**
+ * Load the APIs and run sendQuery when the load is complete
+ */
+var gadgetHelper = null;
+_IG_RegisterOnloadHandler(loadVisualizationAPI);
+function loadVisualizationAPI() { 
+  google.load("visualization", "1");
+  google.setOnLoadCallback(sendQuery);
+}
+
+/**
+ * Create a query (shaped by the Gadget's user preferences), then 
+ * send it to the spreadsheet data source. Also give the name of a 
+ * function ("handleQueryResponse") to run once the spreadsheet data 
+ * is retrieved:
+ */
+function sendQuery() {
+  var prefs = new _IG_Prefs(); // User preferences 
+  gadgetHelper = new google.visualization.GadgetHelper(); 
+  var query = gadgetHelper.createQueryFromPrefs(prefs);
+  query.send(handleQueryResponse);
+} 
+
+/**
+ * The core logic. Process the spreadsheet data however you want. 
+ * In this case, we create HTML to be presented back to the user. 
+ * We'll use inline comments to provide a step-by-step description 
+ * of what we're doing:
+ */
+function handleQueryResponse(response) {
+
+  /**
+   * Use the visualization GadgetHelper class to handle errors 
+   */
+  if (!gadgetHelper.validateResponse(response)) {
+    return;     // Default error handling was done, just leave. 
+  }
+
+  /**
+   * GET THE DATA FROM THE SPREADSHEET - sorry to scream in caps, but 
+   * this is a key step
+   */
+  var data = response.getDataTable();
+
+var html = [];   // start the HTML output string
+html.push('<a class="feed" href="__UP_feedUrl__">Subscribe to comments</a><span class="counter">Comments');
+var row = data.getNumberOfRows()-1;
+var timestamp = data.getFormattedValue(row,0);
+timestamp=escapeHtml(timestamp);
+if (timestamp != 'Timestamp') {html.push(' (' + (row+1) + ')');}
+html.push('</span>');
+  /**
+   * Set the generated html into the container div.
+   */
+  var topDiv = _gel('topdiv');
+  topDiv.innerHTML = html.join('');
+
+var html = [];   // start the HTML output string
+var row = data.getNumberOfRows()-1;
+for (__UP_commentsOrder__) {
+var timestamp = data.getFormattedValue(row,0);
+timestamp=escapeHtml(timestamp);
+if (timestamp == 'Timestamp') {html.push('<div class="no-comments">Be the first to start the discussion!</div>');}
+else {
+var name=data.getFormattedValue(row,1);
+name = escapeHtml(name);
+if (name == '__UP_adminDisplayName__') {html.push('<div class="admin-comments">');}
+else {html.push('<div class="viewers-comments">');}
+html.push('<div class="headers"><span class="numbers">No. ' + (row+1) + '</span>');
+var url = data.getFormattedValue(row,2);
+url=escapeHtml(url);
+if (url == "" || url == "URL") {html.push('<span class="names">' + name + '</span>');}
+else {html.push('<a class="names" href="' + url + '">' + name + '</a>');}
+html.push('<span class="timestamps">' + timestamp + '</span></div>');
+var comment=data.getFormattedValue(row,3);
+comment=escapeHtml(comment);
+html.push('<pre class="comments">' + comment + '</pre></div>');}
+} 
+
+  /**
+   * Set the generated html into the container div.
+   */
+  var tableDiv = _gel('tablediv');
+  tableDiv.innerHTML = html.join('');
+  __UP_dynamicHeight__
+}
+
+/**
+ * Define any supporting code you need 
+ * (like this handy function to escape special characters for html output):
+ */
+function escapeHtml(text) {
+  if (text == null) {
+    return '';
+  }
+  return _hesc(text);
+} 
+
+</script> 
+]]></Content>
+</Module>
