@@ -19,10 +19,6 @@ author_quote="Follow your heart wherever it takes you.">
 </ModulePrefs>
 <UserPref name="url" display_name="MP3 / M3U URL" required="true" />
 <UserPref name="bg" display_name="Background color (e.g. #C0C0C0)" />
-<UserPref name="mime" display_name="Multiple songs" default_value="audio/mpeg" datatype="enum">
-<EnumValue value="audio/mpeg" display_value="No" />
-<EnumValue value="audio/x-mpegurl" display_value="Yes" />
-</UserPref>
 <UserPref name="auto" display_name="AutoStart" default_value="false" datatype="enum">
 <EnumValue value="false" display_value="No" />
 <EnumValue value="true" display_value="Yes" />
@@ -39,6 +35,6 @@ author_quote="Follow your heart wherever it takes you.">
 <style type="text/css">
 body {background:transparent;}
 </style>
-<embed type="__UP_mime__" src="__UP_url__" width="100%" height="100%" bgcolor="__UP_bg__" autostart="__UP_auto__" loop="__UP_loop__" __UP_hide__></embed>
+<embed type="audio/mpeg" src="__UP_url__" width="100%" height="100%" bgcolor="__UP_bg__" autostart="__UP_auto__" loop="__UP_loop__" __UP_hide__></embed>
 ]]></Content>
 </Module>
