@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs
+title="Google+ Share Link Generator"
+title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/google-plus-share-button"
+description="A gadget to create Google+ share links. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/google-plus-share-button"
+screenshot="http://lh3.googleusercontent.com/-G1ArvJJ8Ubs/T9Gw8aWcUSI/AAAAAAAAEg0/yZtetE0eIqA/s800/google-plus-share-link-generator-screenshot.png"
+thumbnail="http://lh3.googleusercontent.com/-f_GyooYfJ8g/T9Gw8fo03JI/AAAAAAAAEgw/nVeO_DslpOs/s800/google-plus-share-link-generator-thumbnail.png"
+width="583"
+height="170"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<Content type="html"><![CDATA[
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<style type="text/css">
+* {margin:0; padding:0; outline:none;}
+::-moz-focus-inner {border:none;}
+form {width:583px; height:170px;}
+#left, #right {float:left;}
+#left {margin-right:15px;}
+.top {margin-bottom:15px;}
+label, input, select, button {font-family:Arial;}
+input, select, textarea {font-size:13px;}
+label, button {font-weight:bold; font-size:11px;}
+label {display:inline-block; width:99px; height:14px; padding:4px 0; vertical-align:bottom; color:#666;}
+input, select, textarea, button {border:1px solid #CCC; background:#F3F3F3; color:#444;}
+input, textarea {padding:2px 4px;}
+input {width:158px; height:16px;}
+select {width:168px; height:22px; padding:1px;}
+textarea {display:block; width:291px; height:127px; overflow:auto; resize:none; font-family:monospace;}
+button {width:57px; height:22px;}
+button[type="submit"], button[type="button"] {float:left; margin-right:5px;}
+button[type="reset"] {float:right;}
+div.top:hover input, div.top:hover select, div.bottom:hover input, textarea:hover, button:hover, input:focus, select:focus, textarea:focus, button:focus {border-color:#AAA; background:#F9F9F9; color:#000;}
+</style>
+<script type="text/javascript">
+function change(el) {
+el.previousSibling.style.color = "#000";
+}
+function back(el) {
+el.previousSibling.style.color = "#666";
+}
+function generate() {
+var Xurl = document.getElementById("url").value;
+var Xlang = document.getElementById("lang").value;
+var Xsize = document.getElementById("size").value;
+var Xtip = document.getElementById("tip").value;
+document.getElementById("code").value = '<a href="https://plus.google.com/share?url=' + encodeURIComponent(Xurl) + '&hl=' + Xlang + '" target="_blank"><img src="https://www.gstatic.com/images/icons/gplus-' + Xsize + '.png" alt="Share on Google+" title="' + Xtip + '" style="border:0;"><\/a>';
+}
+function highlight() {
+document.getElementById("code").select();
+}
+</script>
+<form action="#" onsubmit="generate(); return false;">
+<div id="left">
+<div class="top"><label for="url">URL to share *</label><input onfocus="change(this);" onblur="back(this);" type="text" id="url"></div>
+<div class="top"><label for="lang">Language</label><select onfocus="change(this);" onblur="back(this);" id="lang">
+<option value="af">Afrikaans</option>
+<option value="am">Amharic</option>
+<option value="ar">Arabic</option>
+<option value="eu">Basque</option>
+<option value="bn">Bengali</option>
+<option value="bg">Bulgarian</option>
+<option value="ca">Catalan</option>
+<option value="zh-HK">Chinese (Hong Kong)</option>
+<option value="zh-CN">Chinese (Simplified)</option>
+<option value="zh-TW">Chinese (Traditional)</option>
+<option value="hr">Croatian</option>
+<option value="cs">Czech</option>
+<option value="da">Danish</option>
+<option value="nl">Dutch</option>
+<option value="en-GB">English (UK)</option>
+<option value="en-US" selected="selected">English (US)</option>
+<option value="et">Estonian</option>
+<option value="fil">Filipino</option>
+<option value="fi">Finnish</option>
+<option value="fr">French</option>
+<option value="fr-CA">French (Canadian)</option>
+<option value="gl">Galician</option>
+<option value="de">German</option>
+<option value="el">Greek</option>
+<option value="gu">Gujarati</option>
+<option value="iw">Hebrew</option>
+<option value="hi">Hindi</option>
+<option value="hu">Hungarian</option>
+<option value="is">Icelandic</option>
+<option value="id">Indonesian</option>
+<option value="it">Italian</option>
+<option value="ja">Japanese</option>
+<option value="kn">Kannada</option>
+<option value="ko">Korean</option>
+<option value="lv">Latvian</option>
+<option value="lt">Lithuanian</option>
+<option value="ms">Malay</option>
+<option value="ml">Malayalam</option>
+<option value="mr">Marathi</option>
+<option value="no">Norwegian</option>
+<option value="fa">Persian</option>
+<option value="pl">Polish</option>
+<option value="pt-BR">Portuguese (Brazil)</option>
+<option value="pt-PT">Portuguese (Portugal)</option>
+<option value="ro">Romanian</option>
+<option value="ru">Russian</option>
+<option value="sr">Serbian</option>
+<option value="sk">Slovak</option>
+<option value="sl">Slovenian</option>
+<option value="es">Spanish</option>
+<option value="es-419">Spanish (Latin America)</option>
+<option value="sw">Swahili</option>
+<option value="sv">Swedish</option>
+<option value="ta">Tamil</option>
+<option value="te">Telugu</option>
+<option value="th">Thai</option>
+<option value="tr">Turkish</option>
+<option value="uk">Ukrainian</option>
+<option value="ur">Urdu</option>
+<option value="vi">Vietnamese</option>
+<option value="zu">Zulu</option>
+</select></div>
+<div class="top"><label for="size">Share icon size</label><select onfocus="change(this);" onblur="back(this);" id="size">
+<option value="16">Small: 16x16px</option>
+<option value="32" selected="selected">Medium: 32x32px</option>
+<option value="64">Large: 64x64px</option>
+</select></div>
+<div class="bottom"><label for="tip">Title / tooltip</label><input onfocus="change(this);" onblur="back(this);" type="text" id="tip"></div>
+</div>
+<div id="right">
+<textarea class="top" id="code" rows="1" cols="1" spellcheck="false"></textarea>
+<button type="submit">Create</button>
+<button type="button" onclick="highlight();">Select</button>
+<button type="reset">Reset</button>
+</div>
+</form>
+]]></Content>
+</Module>
