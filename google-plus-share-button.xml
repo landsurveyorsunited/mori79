@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs
+title="Google+ Share Button"
+title_url="http://sites.google.com/site/mori79/html-gadgets/how-tos/google-plus-share-button"
+description="A gadget to embed/add a Google+ share button to your pages. More info: http://sites.google.com/site/mori79/html-gadgets/how-tos/google-plus-share-button"
+screenshot="http://lh3.googleusercontent.com/-OrI1DUdm480/T7y_kOxudFI/AAAAAAAAEgE/rp20hOY3H7c/s800/google-plus-share-button-screenshot.png"
+thumbnail="http://lh3.googleusercontent.com/-EsINHttHlaw/T7y_kMuuoRI/AAAAAAAAEgA/MxC8OZeUebc/s800/google-plus-share-button-thumbnail.png"
+width="32"
+height="32"
+author="Mori"
+author_email="mori79+gadgets@gmail.com"
+author_location="Esfahan, Iran"
+author_affiliation="Google"
+author_photo="http://lh6.ggpht.com/_qkZzGyIkXmo/TCIyTtdtZJI/AAAAAAAADSQ/slTTimrNT1U/s800/author_photo.png"
+author_aboutme="An English teacher, a Google Sites Guru"
+author_link="http://sites.google.com/site/mori79/"
+author_quote="Follow your heart wherever it takes you.">
+</ModulePrefs>
+<UserPref name="url" display_name="URL to share" required="true" />
+<UserPref name="width" display_name="Share box width" default_value="600" />
+<UserPref name="lang" display_name="Language" default_value="en-US" datatype="enum">
+<EnumValue value="af" display_value="Afrikaans" />
+<EnumValue value="am" display_value="Amharic" />
+<EnumValue value="ar" display_value="Arabic" />
+<EnumValue value="eu" display_value="Basque" />
+<EnumValue value="bn" display_value="Bengali" />
+<EnumValue value="bg" display_value="Bulgarian" />
+<EnumValue value="ca" display_value="Catalan" />
+<EnumValue value="zh-HK" display_value="Chinese (Hong Kong)" />
+<EnumValue value="zh-CN" display_value="Chinese (Simplified)" />
+<EnumValue value="zh-TW" display_value="Chinese (Traditional)" />
+<EnumValue value="hr" display_value="Croatian" />
+<EnumValue value="cs" display_value="Czech" />
+<EnumValue value="da" display_value="Danish" />
+<EnumValue value="nl" display_value="Dutch" />
+<EnumValue value="en-GB" display_value="English (UK)" />
+<EnumValue value="en-US" display_value="English (US)" />
+<EnumValue value="et" display_value="Estonian" />
+<EnumValue value="fil" display_value="Filipino" />
+<EnumValue value="fi" display_value="Finnish" />
+<EnumValue value="fr" display_value="French" />
+<EnumValue value="fr-CA" display_value="French (Canadian)" />
+<EnumValue value="gl" display_value="Galician" />
+<EnumValue value="de" display_value="German" />
+<EnumValue value="el" display_value="Greek" />
+<EnumValue value="gu" display_value="Gujarati" />
+<EnumValue value="iw" display_value="Hebrew" />
+<EnumValue value="hi" display_value="Hindi" />
+<EnumValue value="hu" display_value="Hungarian" />
+<EnumValue value="is" display_value="Icelandic" />
+<EnumValue value="id" display_value="Indonesian" />
+<EnumValue value="it" display_value="Italian" />
+<EnumValue value="ja" display_value="Japanese" />
+<EnumValue value="kn" display_value="Kannada" />
+<EnumValue value="ko" display_value="Korean" />
+<EnumValue value="lv" display_value="Latvian" />
+<EnumValue value="lt" display_value="Lithuanian" />
+<EnumValue value="ms" display_value="Malay" />
+<EnumValue value="ml" display_value="Malayalam" />
+<EnumValue value="mr" display_value="Marathi" />
+<EnumValue value="no" display_value="Norwegian" />
+<EnumValue value="fa" display_value="Persian" />
+<EnumValue value="pl" display_value="Polish" />
+<EnumValue value="pt-BR" display_value="Portuguese (Brazil)" />
+<EnumValue value="pt-PT" display_value="Portuguese (Portugal)" />
+<EnumValue value="ro" display_value="Romanian" />
+<EnumValue value="ru" display_value="Russian" />
+<EnumValue value="sr" display_value="Serbian" />
+<EnumValue value="sk" display_value="Slovak" />
+<EnumValue value="sl" display_value="Slovenian" />
+<EnumValue value="es" display_value="Spanish" />
+<EnumValue value="es-419" display_value="Spanish (Latin America)" />
+<EnumValue value="sw" display_value="Swahili" />
+<EnumValue value="sv" display_value="Swedish" />
+<EnumValue value="ta" display_value="Tamil" />
+<EnumValue value="te" display_value="Telugu" />
+<EnumValue value="th" display_value="Thai" />
+<EnumValue value="tr" display_value="Turkish" />
+<EnumValue value="uk" display_value="Ukrainian" />
+<EnumValue value="ur" display_value="Urdu" />
+<EnumValue value="vi" display_value="Vietnamese" />
+<EnumValue value="zu" display_value="Zulu" />
+</UserPref>
+<UserPref name="size" display_name="Share icon size" default_value="32" datatype="enum">
+<EnumValue value="16" display_value="Small: 16x16px" />
+<EnumValue value="32" display_value="Medium: 32x32px" />
+<EnumValue value="64" display_value="Large: 64x64px" />
+</UserPref>
+<UserPref name="tip" display_name="Title / tooltip" />
+<Content type="html"><![CDATA[
+<style type="text/css">
+body {background:transparent;}
+img {border:0;}
+</style>
+<div id="container"></div>
+<script type="text/javascript">
+var prefs = new gadgets.Prefs();
+var Xurl = prefs.getString("url");
+var Xsize = prefs.getString("size");
+var Xtip = prefs.getString("tip");
+var Xwidth = prefs.getString("width");
+var Xlang = prefs.getString("lang");
+var newWindow;
+function popItUp(x,y) {
+newWindow = window.open(x,y,'menubar=no,toolbar=no,resizable=yes,width=' + Xwidth + ',height=600');}
+var content = '<a href="https://plus.google.com/share?url=' + encodeURIComponent(Xurl) + '&hl=' + Xlang + '" target="GooglePlusShareBox" onclick="popItUp(this.href,this.target); return false;"><img src="https://www.gstatic.com/images/icons/gplus-' + Xsize + '.png" alt="Share on Google+" title="' + Xtip + '"><\/a>';
+document.getElementById('container').innerHTML = content;
+</script>
+]]></Content>
+</Module>
