@@ -45,6 +45,7 @@ author_quote="Follow your heart wherever it takes you.">
 <Content type="html"><![CDATA[
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <style type="text/css">
+* {outline:none;}
 body {margin:0; padding:0;}
 #topdiv {height:44px;}
 a.feed:link, a.feed:visited {float:right; font:10pt Arial; color:__UP_feedLinkColor__; background:url(__UP_feedIcon__) no-repeat right bottom; padding-right:20px;}
@@ -56,7 +57,7 @@ a.feed:link, a.feed:visited {float:right; font:10pt Arial; color:__UP_feedLinkCo
 .headers {height:16px; padding:5px; background-color:__UP_headersBackgroundColor__; border-top:1px solid __UP_headersBorderColor__;}
 .numbers {float:right; font:9pt Arial; color:__UP_numbersFontColor__;}
 a.names:link, a.names:visited, span.names {font:bold 10pt Arial; color:__UP_namesFontColor__;}
-a:hover {text-decoration:none;}
+a:hover, a:focus {text-decoration:none;}
 .timestamps {font:9pt Arial; color:__UP_timestampsFontColor__; padding-left:10px;}
 .comments {font:10pt Arial; color:__UP_commentsFontColor__; margin:0; padding:10px 0px 26px; word-wrap:break-word; white-space:pre-line;}
 </style>
