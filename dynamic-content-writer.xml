@@ -49,8 +49,13 @@ var editorSource =
 'html, body, form {padding:0;}' +
 'textarea {overflow:auto; resize:none; box-sizing:border-box; -moz-box-sizing:border-box; padding:0.5em;}' +
 '<\/style>' +
+'<\/head>' +
+'<body>' +
+'<form name="f" method="get" onsubmit="return false;" action="">' +
+'<textarea rows="1" cols="1" oninput="updateViewer();" onpropertychange="updateViewer();" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
+'<\/form>' +
 '<script type="text/javascript">' +
-'var t;' +
+'var t = document.f.ta;' +
 'function updateViewer() {' +
 'var v = window.parent.viewer.document;' +
 'v.open();' +
@@ -69,16 +74,8 @@ var editorSource =
 'updateViewer();' +
 '}' +
 '}' +
-'window.onload = function() {' +
-'t = document.f.ta;' +
 'updateViewer();' +
-'}' +
 '<\/script>' +
-'<\/head>' +
-'<body>' +
-'<form name="f" method="get" onsubmit="return false;" action="">' +
-'<textarea rows="1" cols="1" oninput="updateViewer();" onpropertychange="updateViewer();" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
-'<\/form>' +
 '<\/body>' +
 '<\/html>';
 function updateEditor() {
