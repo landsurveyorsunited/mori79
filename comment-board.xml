@@ -62,7 +62,7 @@ a:hover, a:focus {text-decoration:none;}
 .comments {font:10pt Arial; color:__UP_commentsFontColor__; margin:0; padding:10px 0px 26px; word-wrap:break-word; white-space:pre-line;}
 </style>
 <base target="_blank">
-<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <div id="topdiv"></div>
 <div id="tablediv"></div>
 
