@@ -36,7 +36,7 @@ a:hover img {visibility:hidden;}
 var prefs = new gadgets.Prefs();
 var Furl = prefs.getString("url");
 var Ftarget = prefs.getString("target");
-if (Furl != "") {
+if (Furl) {
 document.getElementById("foo").href = "" + Furl + "";
 document.getElementById("foo").target = "" + Ftarget + "";
 }
