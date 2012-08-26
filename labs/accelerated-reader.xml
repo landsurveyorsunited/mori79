@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="Custom Gadget" />
+<Content type="html"><![CDATA[
+
+<script type="text/javascript" src="http://widgets1.renlearn.com/content/widgets/reading activity/readingactivitywidget.js"></script><script>if (READINGACTIVITYWIDGET) READINGACTIVITYWIDGET.renderWidget('http://widgets1.renlearn.com/', 'BUSD3FZ4');</script><noscript>Enable Javascript in your browser to view this content.</noscript>
+
+]]></Content>
+</Module>
