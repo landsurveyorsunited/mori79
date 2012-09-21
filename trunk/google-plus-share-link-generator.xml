@@ -125,9 +125,9 @@ document.getElementById("code").select();
 <option value="zu">Zulu</option>
 </select></div>
 <div class="top"><label for="size">Share icon size</label><select onfocus="change(this);" onblur="back(this);" id="size">
-<option value="16">Small: 16x16px</option>
-<option value="32" selected="selected">Medium: 32x32px</option>
-<option value="64">Large: 64x64px</option>
+<option value="16">Small: 16 x 16 px</option>
+<option value="32" selected="selected">Medium: 32 x 32 px</option>
+<option value="64">Large: 64 x 64 px</option>
 </select></div>
 <div class="bottom"><label for="tip">Title / tooltip</label><input onfocus="change(this);" onblur="back(this);" type="text" id="tip"></div>
 </div>
