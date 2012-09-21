@@ -83,9 +83,9 @@ author_quote="Follow your heart wherever it takes you.">
 <EnumValue value="zu" display_value="Zulu" />
 </UserPref>
 <UserPref name="size" display_name="Share icon size" default_value="32" datatype="enum">
-<EnumValue value="16" display_value="Small: 16x16px" />
-<EnumValue value="32" display_value="Medium: 32x32px" />
-<EnumValue value="64" display_value="Large: 64x64px" />
+<EnumValue value="16" display_value="Small: 16 x 16 px" />
+<EnumValue value="32" display_value="Medium: 32 x 32 px" />
+<EnumValue value="64" display_value="Large: 64 x 64 px" />
 </UserPref>
 <UserPref name="tip" display_name="Title / tooltip" />
 <Content type="html"><![CDATA[
