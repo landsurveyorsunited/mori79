@@ -17,6 +17,14 @@ author_aboutme="An English teacher, a Google Sites Guru"
 author_link="http://sites.google.com/site/mori79/"
 author_quote="Follow your heart wherever it takes you.">
 </ModulePrefs>
+<UserPref name="labelsFontColor" display_name="Labels font color" default_value="#666666" />
+<UserPref name="activeLabelFontColor" display_name="Active label font color" default_value="#000000" />
+<UserPref name="fieldsBorderColor" display_name="Fields border color" default_value="#CCCCCC" />
+<UserPref name="activeFieldBorderColor" display_name="Active field border color" default_value="#AAAAAA" />
+<UserPref name="fieldsBackgroundColor" display_name="Fields background color" default_value="#F3F3F3" />
+<UserPref name="activeFieldBackgroundColor" display_name="Active field background color" default_value="#F9F9F9" />
+<UserPref name="fieldsFontColor" display_name="Fields font color" default_value="#444444" />
+<UserPref name="activeFieldFontColor" display_name="Active field font color" default_value="#000000" />
 <Content type="html"><![CDATA[
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <style type="text/css">
@@ -29,8 +37,8 @@ form {width:583px; height:170px;}
 label, input, select, button {font-family:Arial;}
 input, select, textarea {font-size:13px;}
 label, button {font-weight:bold; font-size:11px;}
-label {display:block; float:left; width:99px; height:14px; padding:4px 0; color:#666;}
-input, select, textarea, button {border:1px solid #CCC; background:#F3F3F3; color:#444;}
+label {display:block; float:left; width:99px; height:14px; padding:4px 0; color:__UP_labelsFontColor__;}
+input, select, textarea, button {border:1px solid __UP_fieldsBorderColor__; background:__UP_fieldsBackgroundColor__; color:__UP_fieldsFontColor__;}
 input, textarea {padding:2px 4px;}
 input {width:158px; height:16px;}
 select {width:168px; height:22px; padding:1px;}
@@ -38,14 +46,14 @@ textarea {display:block; width:291px; height:127px; overflow:auto; resize:none; 
 button {width:57px; height:22px;}
 button[type="submit"], button[type="button"] {float:left; margin-right:5px;}
 button[type="reset"] {float:right;}
-div.top:hover input, div.top:hover select, div.bottom:hover input, textarea:hover, button:hover, input:focus, select:focus, textarea:focus, button:focus {border-color:#AAA; background:#F9F9F9; color:#000;}
+div.top:hover input, div.top:hover select, div.bottom:hover input, textarea:hover, button:hover, input:focus, select:focus, textarea:focus, button:focus {border-color:__UP_activeFieldBorderColor__; background:__UP_activeFieldBackgroundColor__; color:__UP_activeFieldFontColor__;}
 </style>
 <script type="text/javascript">
 function change(el) {
-el.previousSibling.style.color = "#000";
+el.previousSibling.style.color = "__UP_activeLabelFontColor__";
 }
 function back(el) {
-el.previousSibling.style.color = "#666";
+el.previousSibling.style.color = "__UP_labelsFontColor__";
 }
 function generate() {
 var Xurl = document.getElementById("url").value;
