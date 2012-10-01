@@ -38,6 +38,7 @@ label, input, select, button {font-family:Arial;}
 input, select, textarea {font-size:13px;}
 label, button {font-weight:bold; font-size:11px;}
 label {display:block; float:left; width:99px; height:14px; padding:4px 0; color:__UP_labelsFontColor__;}
+.active {color:__UP_activeLabelFontColor__;}
 input, select, textarea, button {border:1px solid __UP_fieldsBorderColor__; background:__UP_fieldsBackgroundColor__; color:__UP_fieldsFontColor__;}
 input, textarea {padding:2px 4px;}
 input {width:158px; height:16px;}
@@ -50,10 +51,10 @@ div.top:hover input, div.top:hover select, div.bottom:hover input, textarea:hove
 </style>
 <script type="text/javascript">
 function change(el) {
-el.previousSibling.style.color = "__UP_activeLabelFontColor__";
+el.previousSibling.className = 'active';
 }
 function back(el) {
-el.previousSibling.style.color = "__UP_labelsFontColor__";
+el.previousSibling.className = '';
 }
 function generate() {
 var Xurl = document.getElementById("url").value;
