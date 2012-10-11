@@ -165,7 +165,7 @@ textarea {height:142px; padding:3px; color:__UP_labelsFontColor__; overflow:auto
 <b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b><b class="xb5"></b><b class="xb6"></b><b class="xb7"></b>
 <div class="xboxcontent">
 <iframe name="hidden_iframe" id="hidden_iframe"></iframe> 
-<form action="https://spreadsheets.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="post" id="commentForm" target="hidden_iframe" onsubmit="submitted=true;">
+<form action="https://docs.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="post" id="commentForm" target="hidden_iframe" onsubmit="submitted=true;">
 <div id="leftDiv">
 <div class="textarea"><textarea class="required noComment" name="entry.3.single" id="entry_3" rows="5" cols="35">Comment *</textarea></div><div class="warn"></div>
 </div>
