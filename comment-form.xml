@@ -41,7 +41,6 @@ author_quote="Follow your heart wherever it takes you.">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script> 
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script> 
 <script type="text/javascript">
-var submitted=false;
 function displayConfirmation() {
 $("textarea, input").fadeOut(3000, function() {
     $("#confirm").fadeIn(3000);
@@ -117,13 +116,10 @@ error.appendTo( element.parent("div").next("div") );
    submitHandler: function() {
     if ($("#entry_2").val() == "URL") {$("#entry_2").val("");}
       $("#send").bind("click", function() { return false; });
-      form.submit(); 
+      $('#hidden_iframe').load(function() {__UP_onSubmit__});
+      form.submit();
   } 
 });   
-$("iframe").load(function() {
-  if(submitted)
-__UP_onSubmit__
-});
 });
 </script>
 <style type="text/css">
@@ -165,7 +161,7 @@ textarea {height:142px; padding:3px; color:__UP_labelsFontColor__; overflow:auto
 <b class="xb1"></b><b class="xb2"></b><b class="xb3"></b><b class="xb4"></b><b class="xb5"></b><b class="xb6"></b><b class="xb7"></b>
 <div class="xboxcontent">
 <iframe name="hidden_iframe" id="hidden_iframe"></iframe> 
-<form action="https://docs.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="POST" id="commentForm" target="hidden_iframe" autocomplete="off" onsubmit="submitted=true;">
+<form action="https://docs.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="POST" id="commentForm" target="hidden_iframe" autocomplete="off">
 <div id="leftDiv">
 <div class="textarea"><textarea class="required noComment" name="entry.3.single" id="entry_3" rows="5" cols="35">Comment *</textarea></div><div class="warn"></div>
 </div>
