@@ -103,12 +103,9 @@ return value != element.defaultValue;
 jQuery.validator.addMethod("noEmail", function(value, element) {
 return value != element.defaultValue;
 }, "Please enter your Email.");
-$("#entry_2").change(function() {
-      if ($("#entry_2").val() == "URL" || $("#entry_2").val() == "http://" || $("#entry_2").val() == "") {
-        $("#entry_2").attr("class","valid");
-      }
-else {$("#entry_2").attr("class","url");}
-    });
+jQuery.validator.addMethod("customUrl", function(value, element) {
+return this.optional(element) || value == element.defaultValue || value == "http://" || $.validator.methods.url.call(this, value, element);
+}, $.validator.messages.url);
 $("#commentForm").validate({
 errorPlacement: function(error, element) {
 error.appendTo( element.parent("div").next("div") );
@@ -168,7 +165,7 @@ textarea {height:142px; padding:3px; color:__UP_labelsFontColor__; overflow:auto
 <div id="rightDiv">
 <div class="input"><input type="text" class="required noName" name="entry.0.single" id="entry_0" value="Name *"></div><div class="warn"></div>
 <div class="input"><input type="text" class="required noEmail email" name="entry.1.single" id="entry_1" value="Email *"></div><div class="warn"></div>
-<div class="input"><input type="text" name="entry.2.single" id="entry_2" value="URL"></div><div class="warn"></div>
+<div class="input"><input type="text" class="customUrl" name="entry.2.single" id="entry_2" value="URL"></div><div class="warn"></div>
 <input type="hidden" name="pageNumber" value="0">
 <input type="hidden" name="backupCache" value="">
 <div class="button"><div id="confirm">Success!</div><input id="send" type="submit" name="submit" value="Submit"></div><div class="warn"></div>
