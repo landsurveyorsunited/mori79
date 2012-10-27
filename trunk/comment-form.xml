@@ -104,7 +104,7 @@ jQuery.validator.addMethod("noEmail", function(value, element) {
 return value != element.defaultValue;
 }, "Please enter your Email.");
 jQuery.validator.addMethod("customUrl", function(value, element) {
-return this.optional(element) || value == element.defaultValue || value == "http://" || $.validator.methods.url.call(this, value, element);
+return value == element.defaultValue || value == "http://" || $.validator.methods.url.call(this, value, element);
 }, $.validator.messages.url);
 $("#commentForm").validate({
 errorPlacement: function(error, element) {
