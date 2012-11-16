@@ -102,7 +102,7 @@ return value != element.defaultValue;
 }, "Please enter your name.");
 jQuery.validator.addMethod("noEmail", function(value, element) {
 return value != element.defaultValue;
-}, "Please enter your Email.");
+}, "Please enter your email.");
 jQuery.validator.addMethod("customUrl", function(value, element) {
 return value == element.defaultValue || value == "http://" || $.validator.methods.url.call(this, value, element);
 }, $.validator.messages.url);
