@@ -52,26 +52,29 @@ var editorSource =
 '<\/head>' +
 '<body>' +
 '<form name="f" method="get" onsubmit="return false;" action="">' +
-'<textarea rows="1" cols="1" oninput="updateViewer();" onpropertychange="updateViewer();" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
+'<textarea rows="1" cols="1" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
 '<\/form>' +
 '<script type="text/javascript">' +
 'var t = document.f.ta;' +
+'var old = "";' +
 'function updateViewer() {' +
 'var v = window.parent.viewer.document;' +
+'if (old != t.value) {' +
+'old = t.value;' +
 'v.open();' +
-'v.write(t.value);' +
+'v.write(old);' +
 'v.close();' +
+'}' +
+'window.setTimeout(updateViewer,100);' +
 '}' +
 'function getFocus() {' +
 'if (t.value == t.defaultValue) {' +
 't.value = "";' +
-'updateViewer();' +
 '}' +
 '}' +
 'function loseFocus() {' +
 'if (t.value == "") {' +
 't.value = t.defaultValue;' +
-'updateViewer();' +
 '}' +
 '}' +
 'updateViewer();' +
