@@ -87,7 +87,7 @@ $("#entry_2").focus(function(){
     $(this).val("http://").css("color","__UP_textInputFontColor__"); moveCursorToEnd(this);
   }
 }).blur(function() {
-  if( !this.value.length || $("#entry_2").val() == "http://" ) {
+  if( !this.value.length || $(this).val() == "http://" ) {
     $(this).val(this.defaultValue).css("color","__UP_labelsFontColor__");
   }
 });
