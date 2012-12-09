@@ -112,7 +112,7 @@ error.appendTo( element.parent("div").next("div") );
 },
    submitHandler: function() {
     if ($("#entry_2").val() == "URL") {$("#entry_2").val("");}
-      $("#send").bind("click", function() { return false; });
+      $("#send").on("click", function() { return false; });
       $('#hidden_iframe').load(function() {__UP_onSubmit__});
       form.submit();
   } 
