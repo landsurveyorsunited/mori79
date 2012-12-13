@@ -92,7 +92,7 @@ $("#entry_2").focus(function(){
   }
 });
 $("input[type=text]").keypress(function(e) {
-    if ( e.which == 13 ) e.preventDefault();
+    if ( e.which == 13 ) {e.preventDefault();}
 });
 jQuery.validator.addMethod("noComment", function(value, element) {
 return value != element.defaultValue;
