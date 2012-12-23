@@ -160,11 +160,11 @@ textarea {height:142px; padding:3px; color:__UP_labelsFontColor__; overflow:auto
 <iframe name="hidden_iframe" id="hidden_iframe"></iframe> 
 <form action="https://docs.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="POST" id="commentForm" target="hidden_iframe" autocomplete="off">
 <div id="leftDiv">
-<div class="textarea"><textarea class="required noComment" name="entry.3.single" id="entry_3" rows="5" cols="35">Comment *</textarea></div><div class="warn"></div>
+<div class="textarea"><textarea class="noComment required" name="entry.3.single" id="entry_3" rows="5" cols="35">Comment *</textarea></div><div class="warn"></div>
 </div>
 <div id="rightDiv">
-<div class="input"><input type="text" class="required noName" name="entry.0.single" id="entry_0" value="Name *"></div><div class="warn"></div>
-<div class="input"><input type="text" class="required noEmail email" name="entry.1.single" id="entry_1" value="Email *"></div><div class="warn"></div>
+<div class="input"><input type="text" class="noName required" name="entry.0.single" id="entry_0" value="Name *"></div><div class="warn"></div>
+<div class="input"><input type="text" class="noEmail required email" name="entry.1.single" id="entry_1" value="Email *"></div><div class="warn"></div>
 <div class="input"><input type="text" class="customUrl" name="entry.2.single" id="entry_2" value="URL"></div><div class="warn"></div>
 <input type="hidden" name="pageNumber" value="0">
 <input type="hidden" name="backupCache" value="">
