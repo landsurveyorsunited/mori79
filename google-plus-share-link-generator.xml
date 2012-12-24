@@ -45,7 +45,7 @@ input {width:158px; height:16px;}
 select {width:168px; height:22px; padding:1px;}
 textarea {display:block; width:291px; height:127px; overflow:auto; resize:none; font-family:monospace;}
 button {width:57px; height:22px;}
-button[type="submit"], button[type="button"] {float:left; margin-right:5px;}
+button[type="button"] {float:left; margin-right:5px;}
 button[type="reset"] {float:right;}
 div.top:hover input, div.top:hover select, div.bottom:hover input, textarea:hover, button:hover, input:focus, select:focus, textarea:focus, button:focus {border-color:__UP_activeFieldBorderColor__; background:__UP_activeFieldBackgroundColor__; color:__UP_activeFieldFontColor__;}
 </style>
@@ -67,7 +67,7 @@ function highlight() {
 document.getElementById("code").select();
 }
 </script>
-<form action="#" onsubmit="generate(); return false;">
+<form action="#">
 <div id="left">
 <div class="top"><label for="url">URL to share *</label><input onfocus="change(this);" onblur="back(this);" type="text" id="url"></div>
 <div class="top"><label for="lang">Language</label><select onfocus="change(this);" onblur="back(this);" id="lang">
@@ -142,7 +142,7 @@ document.getElementById("code").select();
 </div>
 <div id="right">
 <textarea class="top" id="code" rows="1" cols="1" spellcheck="false"></textarea>
-<button type="submit">Create</button>
+<button type="button" onclick="generate();">Create</button>
 <button type="button" onclick="highlight();">Select</button>
 <button type="reset">Reset</button>
 </div>
