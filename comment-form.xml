@@ -120,6 +120,7 @@ error.appendTo( element.parent("div").next("div") );
 });
 </script>
 <style type="text/css">
+* {outline:0;}
 html, body, form {margin:0px; padding:0px;}
 .xsnazzy {height:209px; background:transparent;}
 .xsnazzy em {display:block; width:0; height:0; color:transparent; overflow:hidden; border-top:12px solid __UP_speechBubbleBorderColor__; border-left:12px dotted transparent; border-right:12px dotted transparent; margin-left:50px;}
