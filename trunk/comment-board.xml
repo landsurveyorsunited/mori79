@@ -22,9 +22,9 @@ author_quote="Follow your heart wherever it takes you.">
 <UserPref name="_table_query_url" display_name="Google spreadsheet URL" required="true" />
 <UserPref name="feedUrl" display_name="Feed URL" required="true" />
 <UserPref name="adminDisplayName" display_name="Admin display name" required="true" />
-<UserPref name="dynamicHeight" display_name="Dynamic height" default_value="gadgets.window.adjustHeight();" datatype="enum">
-<EnumValue value="gadgets.window.adjustHeight();" display_value="Yes" />
-<EnumValue value="tableDiv.style.overflow = 'auto'; tableDiv.style.height = document.documentElement.clientHeight - 44 + 'px';" display_value="No" />
+<UserPref name="dynamicHeight" display_name="Dynamic height" default_value="1" datatype="enum">
+<EnumValue value="1" display_value="Yes" />
+<EnumValue value="2" display_value="No" />
 </UserPref>
 <UserPref name="commentsOrder" display_name="Comments order" default_value="row = 0; row != data.getNumberOfRows(); row++" datatype="enum">
 <EnumValue value="row = 0; row != data.getNumberOfRows(); row++" display_value="Chronological" />
@@ -152,7 +152,8 @@ html.push('<pre class="comments">' + comment + '</pre></div>');}
    */
   var tableDiv = _gel('tablediv');
   tableDiv.innerHTML = html.join('');
-  __UP_dynamicHeight__
+  if (__UP_dynamicHeight__ == 1) {gadgets.window.adjustHeight();}
+  else {tableDiv.style.overflow = 'auto'; tableDiv.style.height = document.documentElement.clientHeight - 44 + 'px';}
 }
 
 /**
