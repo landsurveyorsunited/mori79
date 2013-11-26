@@ -22,6 +22,7 @@ author_quote="Follow your heart wherever it takes you.">
 <UserPref name="_table_query_url" display_name="Google spreadsheet URL" required="true" />
 <UserPref name="feedUrl" display_name="Feed URL" required="true" />
 <UserPref name="adminDisplayName" display_name="Admin display name" required="true" />
+<UserPref name="loadingIcon" display_name="Loading icon" default_value="https://lh3.googleusercontent.com/-zzZbZ43NJGU/UpMt3kIxUwI/AAAAAAAAFWI/ApzeV7VL4nw/s800/loading.gif" />
 <UserPref name="dynamicHeight" display_name="Dynamic height" default_value="1" datatype="enum">
 <EnumValue value="1" display_value="Yes" />
 <EnumValue value="2" display_value="No" />
@@ -47,6 +48,7 @@ author_quote="Follow your heart wherever it takes you.">
 <style type="text/css">
 * {outline:0;}
 body {margin:0; padding:0;}
+#loading {background:url(__UP_loadingIcon__) no-repeat center;}
 #topdiv {height:44px;}
 a.feed:link, a.feed:visited {float:right; font:10pt Arial; color:__UP_feedLinkColor__; background:url(__UP_feedIcon__) no-repeat right bottom; padding-right:20px;}
 .counter {font:bold 11pt Arial; color:__UP_commentCounterFontColor__;}
@@ -63,11 +65,13 @@ a:hover, a:focus {text-decoration:none;}
 </style>
 <base target="_blank">
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-<div id="topdiv"></div>
+<div id="topdiv"><div id="loading"></div></div>
 <div id="tablediv"></div>
 
 <script>
-
+var hgt;
+hgt = document.documentElement.clientHeight;
+document.getElementById('loading').style.height = hgt + 'px';
 /**
  * Load the APIs and run sendQuery when the load is complete
  */
@@ -153,7 +157,7 @@ html.push('<pre class="comments">' + comment + '</pre></div>');}
   var tableDiv = _gel('tablediv');
   tableDiv.innerHTML = html.join('');
   if (__UP_dynamicHeight__ == 1) {gadgets.window.adjustHeight();}
-  else {tableDiv.style.overflow = 'auto'; tableDiv.style.height = document.documentElement.clientHeight - 44 + 'px';}
+  else {tableDiv.style.overflow = 'auto'; tableDiv.style.height = hgt - 44 + 'px';}
 }
 
 /**
