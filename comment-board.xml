@@ -44,7 +44,7 @@ author_quote="Follow your heart wherever it takes you.">
 <UserPref name="numbersFontColor" display_name="Numbers font color" default_value="#000000" />
 <UserPref name="commentsFontColor" display_name="Comments font color" default_value="#000000" />
 <Content type="html"><![CDATA[
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <style type="text/css">
 * {outline:0;}
 body {margin:0; padding:0;}
