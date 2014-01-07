@@ -47,7 +47,7 @@ var editorSource =
 '<style type="text/css">' +
 '* {width:100%; height:100%; margin:0; border:0; background:' + tbc + '; font:10pt monospace; color:' + tfc + ';}' +
 'html, body, form {padding:0;}' +
-'textarea {overflow:auto; resize:none; box-sizing:border-box; -moz-box-sizing:border-box; padding:0.5em;}' +
+'textarea {display:block; overflow:auto; resize:none; box-sizing:border-box; -moz-box-sizing:border-box; padding:0.5em;}' +
 '<\/style>' +
 '<\/head>' +
 '<body>' +
