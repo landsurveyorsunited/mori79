@@ -32,8 +32,9 @@ author_quote="Follow your heart wherever it takes you.">
 <UserPref name="errorMessagesFontColor" display_name="Error messages font color" default_value="#FF0080" />
 <UserPref name="confirmationMessageFontColor" display_name="Confirmation message font color" default_value="#FF0080" />
 <UserPref name="onSubmit" display_name="On submit" default_value="displayConfirmation()" datatype="enum">
-<EnumValue value="displayConfirmation()" display_value="Display the confirmation message" /> 
+<EnumValue value="displayConfirmation()" display_value="Display the confirmation message" />
 <EnumValue value="redirect()" display_value="Redirect to the following page" />
+<EnumValue value="reload()" display_value="Reload the page" />
 </UserPref>
 <UserPref name="pageUrl" display_name="Page URL" />
 <Content type="html"><![CDATA[
@@ -46,8 +47,10 @@ $("textarea, input").fadeOut(3000, function() {
     $("#confirm").fadeIn(3000);
   });
 }
+function reload()
+{parent.location = gadgets.util.getUrlParameters()['parent']}
 function redirect()
-{parent.location='__UP_pageUrl__';}
+{parent.location = '__UP_pageUrl__'}
 $(document).ready(function(){
 $('#leftDiv').width($('.textarea').width()+2);
 $('#rightDiv').width($('.input').width()+2);
