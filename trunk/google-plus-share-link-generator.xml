@@ -66,7 +66,7 @@ function highlight() {
 document.getElementById("code").select();
 }
 </script>
-<form action="#">
+<form>
 <div id="left">
 <div class="top"><label for="url">URL to share *</label><input onfocus="change(this);" onblur="back(this);" type="text" id="url"></div>
 <div class="top"><label for="lang">Language</label><select onfocus="change(this);" onblur="back(this);" id="lang">
@@ -140,7 +140,7 @@ document.getElementById("code").select();
 <div class="bottom"><label for="tip">Title / tooltip</label><input onfocus="change(this);" onblur="back(this);" type="text" id="tip"></div>
 </div>
 <div id="right">
-<textarea class="top" id="code" rows="1" cols="1" spellcheck="false"></textarea>
+<textarea class="top" id="code" spellcheck="false"></textarea>
 <button type="button" onclick="generate();">Create</button>
 <button type="button" onclick="highlight();">Select</button>
 <button type="reset">Reset</button>
