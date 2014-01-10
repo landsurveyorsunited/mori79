@@ -51,8 +51,8 @@ var editorSource =
 '<\/style>' +
 '<\/head>' +
 '<body>' +
-'<form name="f" method="get" onsubmit="return false;" action="">' +
-'<textarea rows="1" cols="1" onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
+'<form name="f">' +
+'<textarea onfocus="getFocus();" onblur="loseFocus();" name="ta" spellcheck="false">&lt;p&gt;Embed code in the text field above and see the result in the frame below.&lt;/p&gt;<\/textarea>' +
 '<\/form>' +
 '<script type="text/javascript">' +
 'var t = document.f.ta;' +
