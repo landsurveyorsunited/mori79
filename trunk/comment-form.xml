@@ -162,7 +162,7 @@ textarea {height:142px; padding:3px; color:__UP_labelsFontColor__; overflow:auto
 <iframe name="hidden_iframe" id="hidden_iframe"></iframe> 
 <form action="https://docs.google.com/spreadsheet/formResponse?formkey=__UP_formKey__&amp;ifq" method="POST" id="commentForm" target="hidden_iframe" autocomplete="off">
 <div id="leftDiv">
-<div class="textarea"><textarea class="noComment required" name="entry.3.single" id="entry_3" rows="5" cols="35">Comment *</textarea></div><div class="warn"></div>
+<div class="textarea"><textarea class="noComment required" name="entry.3.single" id="entry_3">Comment *</textarea></div><div class="warn"></div>
 </div>
 <div id="rightDiv">
 <div class="input"><input type="text" class="noName required" name="entry.0.single" id="entry_0" value="Name *"></div><div class="warn"></div>
